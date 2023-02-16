@@ -13,7 +13,7 @@ export class ContactList extends React.Component {
     const { contact } = this.props;
     return (
       <li>
-        {contact.name}: {contact.number}
+        {contact.name}: {contact.number} : {contact.id}
         <button onClick={this.deleteThisContact}>Delete</button>
       </li>
     );
