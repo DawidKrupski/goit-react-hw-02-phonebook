@@ -10,7 +10,7 @@ export class ContactList extends React.Component {
   };
 
   render() {
-    const { contact, deleteContact } = this.props;
+    const { contact } = this.props;
     return (
       <li>
         {contact.name}: {contact.number}
