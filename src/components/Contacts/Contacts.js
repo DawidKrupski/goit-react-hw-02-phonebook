@@ -1,17 +1,19 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import { ContactList } from 'components/ContactList/ContactList';
+import { Filter } from 'components/ContactList/Filter/Filter';
+import css from './Contacts.module.css';
 
 export class Contacts extends React.Component {
   state = { contacts: [], name: '', number: '' };
 
-  newContact = evt => {
+  Contact = evt => {
     this.setState({
       name: evt.target.value,
     });
   };
 
-  newNumber = evt => {
+  Number = evt => {
     this.setState({
       number: evt.target.value,
     });
@@ -33,37 +35,54 @@ export class Contacts extends React.Component {
       name: '',
       number: '',
     }));
-    // console.log(this.state);
+  };
+
+  deleteContact = id => {
+    this.setState(state => ({
+      constacts: state.constacts.filter(constact => constact.id !== id),
+    }));
   };
 
   render() {
     return (
       <>
-        <label>Name</label>
-        <form onSubmit={this.addContact}>
+        <label className={css.phonebook}>Phonebook</label>
+        <form onSubmit={this.addContact} className={css.form}>
+          <label>Name</label>
           <input
+            className={css.input}
             value={this.state.name}
-            onChange={this.newContact}
+            onChange={this.Contact}
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
           />
+          <label>Number</label>
           <input
+            className={css.input}
             value={this.state.number}
-            onChange={this.newNumber}
+            onChange={this.Number}
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
           />
-          <button type="submit">Add contact</button>
+          <button className={css.btn} type="submit">
+            Add contact
+          </button>
         </form>
-        <ul>
+        <ul className={css.list}>
+          <label className={css.contacts}>Contacts</label>
+          <Filter />
           {this.state.contacts.map((contact, index) => (
-            <ContactList contact={contact} key={index} />
+            <ContactList
+              contact={contact}
+              deleteContact={this.deleteContact}
+              key={index}
+            />
           ))}
         </ul>
       </>
