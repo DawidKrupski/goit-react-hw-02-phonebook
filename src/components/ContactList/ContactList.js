@@ -14,7 +14,7 @@ export class ContactList extends React.Component {
     return (
       <li>
         {contact.name}: {contact.number}
-        <button onClick={deleteContact}>Delete</button>
+        <button onClick={this.deleteThisContact}>Delete</button>
       </li>
     );
   }
