@@ -11,8 +11,8 @@ export class ContactList extends React.Component {
   };
 
   render() {
-    const { contacts, filter } = this.props;
-    const filteredContacts = contacts.filter(contact =>
+    const { contact, filter } = this.props;
+    const filteredContacts = contact.filter(contact =>
       contact.name.toLowerCase().includes(filter.toLowerCase())
     );
 
