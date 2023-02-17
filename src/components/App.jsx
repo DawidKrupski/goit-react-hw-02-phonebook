@@ -72,6 +72,7 @@ export class App extends React.Component {
         <Filter handleInput={this.handleInput} />
         {this.state.contacts.map((contact, index) => (
           <ContactList
+            contacts={this.state.contacts}
             contact={contact}
             deleteContact={this.deleteContact}
             key={index}
