@@ -4,13 +4,13 @@ import css from './Filter.module.css';
 
 export class Filter extends React.Component {
   render() {
-    const { filter, Contact } = this.props;
+    const { filter, handleInput } = this.props;
     return (
       <>
         <p className={css.find}>Find contacts by name</p>
         <input
           className={css.filter}
-          onChange={Contact}
+          onChange={handleInput}
           autoComplete="off"
           type="text"
           name="filter"

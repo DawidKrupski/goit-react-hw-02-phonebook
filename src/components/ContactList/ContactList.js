@@ -1,4 +1,5 @@
 import React from 'react';
+import css from './ContactList.module.css';
 // import PropTypes from 'prop-types';
 
 export class ContactList extends React.Component {
@@ -10,12 +11,19 @@ export class ContactList extends React.Component {
   };
 
   render() {
-    const { contact } = this.props;
+    const { contact, filter } = this.props;
+    const filteredContacts = contact.filter(contact =>
+      contact.name.toLowerCase().includes(filter.toLowerCase())
+    );
     return (
-      <li>
-        {contact.name}: {contact.number}
+      <>
+        {filteredContacts.map(({ name, number, id }) => (
+          <li key={id}>
+            {name}: {number}
+          </li>
+        ))}
         <button onClick={this.deleteThisContact}>Delete</button>
-      </li>
+      </>
     );
   }
 }
