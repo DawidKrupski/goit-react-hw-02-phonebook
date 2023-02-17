@@ -12,9 +12,11 @@ export class ContactList extends React.Component {
 
   render() {
     const { contact, filter } = this.props;
+    // if (contact.length > 0) {
     const filteredContacts = contact.filter(contact =>
       contact.name.toLowerCase().includes(filter.toLowerCase())
     );
+
     return (
       <>
         {filteredContacts.map(({ name, number, id }) => (
@@ -25,5 +27,8 @@ export class ContactList extends React.Component {
         <button onClick={this.deleteThisContact}>Delete</button>
       </>
     );
+    // } else {
+    //   console.log('nie działa');
+    // }
   }
 }
