@@ -7,9 +7,7 @@ export class AddName extends React.Component {
     const { name, handleNameInput } = this.props;
     return (
       <>
-        <label htmlFor="name" className={css.name}>
-          Name
-        </label>
+        <label htmlFor="name">Name</label>
         <input
           className={css.input}
           value={name}

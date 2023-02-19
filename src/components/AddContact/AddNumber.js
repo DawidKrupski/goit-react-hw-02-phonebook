@@ -7,9 +7,7 @@ export class AddNumber extends React.Component {
     const { number, handleNumberInput } = this.props;
     return (
       <>
-        <label htmlFor="number" className={css.number}>
-          Number
-        </label>
+        <label htmlFor="number">Number</label>
         <input
           className={css.input}
           value={number}

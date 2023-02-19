@@ -15,22 +15,26 @@ export class App extends React.Component {
   };
   handleSubmit = evt => {
     evt.preventDefault();
+    let contactExist = this.state.contacts.find(
+      contact => contact.name === this.state.name
+    );
     const { contacts } = this.state;
     const lastid =
       contacts.length > 0
         ? Math.max(...contacts.map(contact => contact.id))
         : 0;
 
-    console.log(contacts.name);
-    this.setState(state => ({
-      contacts: state.contacts.concat({
-        name: state.name,
-        number: state.number,
-        id: lastid + 1,
-      }),
-      name: '',
-      number: '',
-    }));
+    if (!contactExist) {
+      this.setState(state => ({
+        contacts: state.contacts.concat({
+          name: state.name,
+          number: state.number,
+          id: lastid + 1,
+        }),
+        name: '',
+        number: '',
+      }));
+    } else alert(`${this.state.name} is alredy in contacts.`);
   };
 
   handleNameInput = evt => {
@@ -60,7 +64,11 @@ export class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div
+        style={{
+          marginLeft: 'calc(50% - 150px)  ',
+        }}
+      >
         <h1>Phonebook</h1>
         <AddContact
           name={this.state.name}
