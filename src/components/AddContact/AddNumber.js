@@ -1,5 +1,6 @@
 import React from 'react';
 import css from './AddNumber.module.css';
+import PropTypes from 'prop-types';
 
 export class AddNumber extends React.Component {
   render() {
@@ -23,3 +24,7 @@ export class AddNumber extends React.Component {
     );
   }
 }
+
+AddNumber.propTypes = {
+  number: PropTypes.number,
+};

@@ -2,6 +2,7 @@ import React from 'react';
 import { AddName } from 'components/AddContact/AddName';
 import { AddNumber } from 'components/AddContact/AddNumber';
 import css from './AddContact.module.css';
+
 export class AddContact extends React.Component {
   static defaultProps = {
     name: '',

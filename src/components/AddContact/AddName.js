@@ -1,5 +1,6 @@
 import React from 'react';
 import css from './AddName.module.css';
+import PropTypes from 'prop-types';
 
 export class AddName extends React.Component {
   render() {
@@ -23,3 +24,7 @@ export class AddName extends React.Component {
     );
   }
 }
+
+AddName.propTypes = {
+  name: PropTypes.string,
+};
