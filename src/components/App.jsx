@@ -20,6 +20,8 @@ export class App extends React.Component {
       contacts.length > 0
         ? Math.max(...contacts.map(contact => contact.id))
         : 0;
+
+    console.log(contacts.name);
     this.setState(state => ({
       contacts: state.contacts.concat({
         name: state.name,

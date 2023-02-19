@@ -26,5 +26,5 @@ export class AddNumber extends React.Component {
 }
 
 AddNumber.propTypes = {
-  number: PropTypes.number,
+  number: PropTypes.string,
 };
