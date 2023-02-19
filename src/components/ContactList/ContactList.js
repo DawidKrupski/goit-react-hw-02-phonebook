@@ -4,15 +4,15 @@ import React from 'react';
 
 export class ContactList extends React.Component {
   deleteThisContact = () => {
-    const { contact, deleteContact } = this.props;
-    const { id } = contact;
-
+    const { contacts, deleteContact } = this.props;
+    const { id } = contacts.map(contact => contact);
+    console.log(id);
     deleteContact(id);
   };
 
   render() {
-    const { contact, filter } = this.props;
-    const filteredContacts = contact.filter(contact =>
+    const { contacts, filter } = this.props;
+    const filteredContacts = contacts.filter(contact =>
       contact.name.toLowerCase().includes(filter.toLowerCase())
     );
 
@@ -20,10 +20,10 @@ export class ContactList extends React.Component {
       <>
         {filteredContacts.map(({ name, number, id }) => (
           <li key={id}>
-            {name}: {number}
+            {name}: {number} : {id}
+            <button onClick={this.deleteThisContact}>Delete</button>
           </li>
         ))}
-        <button onClick={this.deleteThisContact}>Delete</button>
       </>
     );
   }

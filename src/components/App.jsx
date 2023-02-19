@@ -70,13 +70,12 @@ export class App extends React.Component {
 
         <h2>Contacts</h2>
         <Filter handleInput={this.handleInput} />
-        {this.state.contacts.map((contact, index) => (
-          <ContactList
-            contact={contact}
-            deleteContact={this.deleteContact}
-            key={index}
-          />
-        ))}
+        <ContactList
+          contacts={this.state.contacts}
+          deleteContact={this.deleteContact}
+          filter={this.state.filter}
+          key={this.state.contacts.id}
+        />
       </div>
     );
   }
