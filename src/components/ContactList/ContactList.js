@@ -1,5 +1,4 @@
 import React from 'react';
-// import css from './ContactList.module.css';
 
 export class ContactList extends React.Component {
   render() {
